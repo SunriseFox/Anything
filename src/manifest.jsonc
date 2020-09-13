@@ -1,0 +1,161 @@
+{
+  // Required
+  "manifest_version": 2,
+  "name": "Anything",
+  "version": "1.0.0",
+  // Recommended
+  // "default_locale": "en",
+  "description": "I am anything",
+  "icons": {
+    "16": "anything_icon16x16.png",
+    "32": "anything_icon32x32.png",
+    "48": "anything_icon48x48.png",
+    "128": "anything_icon128x128.png"
+  },
+  // Pick one (or none)
+  "browser_action": {
+    "default_icon": {
+      "16": "anything_icon16x16.png",
+      "32": "anything_icon32x32.png",
+      "48": "anything_icon48x48.png"
+    },
+    "default_title": "Anything", // optional; shown in tooltip
+    "default_popup": "popup-page/index.html" // optional
+  },
+  // Optional
+  "author": "SunriseFox",
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "background-script/index.js"
+    ]
+  },
+  // "chrome_settings_overrides": {
+  // 修改 chrome 的样子和各种设置
+  // },
+  // "chrome_url_overrides": {
+  // 修改 chrome 的书签页、历史页、新标签页之一
+  // },
+  "commands": {
+    // 要注册的快捷键，可以通过 
+    // chrome.commands.onCommand 监听
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://vampire.rip/*"
+      ],
+      "match_about_blank": true,
+      "run_at": "document_start",
+      "js": [
+        "content-script/index.js"
+      ],
+      "all_frames": true
+    }
+  ],
+  "devtools_page": "devtools-page/index.html",
+  "externally_connectable": {
+    // 谁可以和我通信，默认包含全部其他插件
+  },
+  // 文件系统相关
+  "file_browser_handlers": [],
+  "file_system_provider_capabilities": {
+    "configurable": true,
+    "multiple_mounts": true,
+    "source": "network"
+  },
+  "homepage_url": "https://vampire.rip",
+  // 和其他插件共享文件或 API
+  "import": [],
+  // 隐私模式的可用性
+  "incognito": "spanning",
+  // 用于生成插件 id 的公钥，。调试时需要固定 id 时使用，否则生成随机 id
+  // "key": "publicKey",
+  "minimum_chrome_version": "85",
+  "offline_enabled": true,
+  "omnibox": {
+    "keyword": "vampire"
+  },
+  "options_page": "options-page/index.html",
+  // "options_ui": {
+  //   "chrome_style": true,
+  //   "page": "options-page/index.html"
+  // },
+  "permissions": [
+    "activeTab",
+    "alarms",
+    "background",
+    "bookmarks",
+    "browsingData",
+    "certificateProvider",
+    "clipboardRead",
+    "clipboardWrite",
+    "contentSettings",
+    "contextMenus",
+    "cookies",
+    "debugger",
+    "declarativeContent",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "declarativeWebRequest",
+    "desktopCapture",
+    "displaySource",
+    "dns",
+    "documentScan",
+    "downloads",
+    "enterprise.deviceAttributes",
+    "enterprise.hardwarePlatform",
+    "enterprise.networkingAttributes",
+    "enterprise.platformKeys",
+    "experimental",
+    "fileBrowserHandler",
+    "fileSystemProvider",
+    "fontSettings",
+    "gcm",
+    "geolocation",
+    "history",
+    "identity",
+    "idle",
+    "idltest",
+    "login",
+    "loginScreenStorage",
+    "loginState",
+    "management",
+    "nativeMessaging",
+    "networking.config",
+    "notifications",
+    "pageCapture",
+    "platformKeys",
+    "power",
+    "printerProvider",
+    "printing",
+    "printingMetrics",
+    "privacy",
+    "processes",
+    "proxy",
+    "sessions",
+    "signedInDevices",
+    "storage",
+    "system.cpu",
+    "system.display",
+    "system.memory",
+    "system.storage",
+    "tabCapture",
+    "tabs",
+    "topSites",
+    "tts",
+    "ttsEngine",
+    "unlimitedStorage",
+    "vpnProvider",
+    "wallpaper",
+    "webNavigation",
+    // "webRequest",
+    "webRequestBlocking"
+  ],
+  "optional_permissions": [],
+  "sandbox": [],
+  "short_name": "Anything",
+  "version_name": "Anything",
+  // 页面可以访问的资源
+  "web_accessible_resources": []
+}
